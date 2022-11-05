@@ -8,16 +8,19 @@ initial-scale=1.0">
 <title>Note Page</title>
 <link href="style.css" rel="stylesheet">
 </head>
-<body class="note">
-  <img src="./Images/a-unicorn.jpg" alt="Rabbit" width="700" height="500"><br>
-<form>
-  <label for="note"> Note:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="text" id="note" name="note" placeholder="Enter your Notes" class="note"><br>
-  <br>
-  <input type="submit" value="Submit">
-</form> 
-<br>
-<a href="./login page.html">Login Page</a>
-<a href="./register page.html">Signup Page</a>
+<body>
+  <nav class="flexibox">
+      <a href="./login.html">Signup page</a>
+      <a href="./register.html">Notes page</a>
+  </nav>
+      <main class="middle">
+          <form id="Noteform">
+               <label for="note">Note</label>:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+               <input type="text" id="note" name="note" placeholder="Enter your note" class="Notes">
+               <br>
+               <input type="submit" value="submit" class="Notes">
+          </form>
+      </main>
+      <script src="main.js"></script>
 </body>
 </html>
