@@ -1,109 +1,90 @@
-class main
-{
-    constructor(FName1,LName1,Email,pd,ReEnterpd,Ptext)
-    {
+// getUsers button 
+ document.getElementById("btn-users").addEventListener('click', getUsers);
 
-    this.FN=FName1;
-    this.LN=LName1;
-    this.email=Email;
-    this.PWD=pd;
-    this.Password=ReEnterpd;
-    this.Nts=Ptext;
-
+function getUsers() {
+  fetch("http://localhost:3000/users/")
+  .then((res)=> res.json())
+  .then((data) => console.log(data))
+  .catch((err)=> console.log(err))
+ }
+class MainPage {
+    constructor(fname, lname, uname, pwd, note) {
+      this.FN = fname;
+      this.LN = lname;
+      this.UN = uname;
+      this.Pwd = pwd;
+      this.Note = note;
     }
-    getFN(){
-        return this.FN;
-    
+    getFN() {
+      return this.FN;
     }
-    getLN()
-        return this.LN;
+    getLN() {
+      return this.LN;
     }
-    getemail(){
-        return this.email;
-
+    getUN() {
+      return this.UN;
     }
-    getPWD()
-    {
-        return this.PWD;
-
+    getPwd() {
+      return this.Pwd;
     }
-    getPassword()
-    {
-        return this.Password;
-
-
+    setFN(fname) {
+      this.FN = fname;
     }
-    getNts()
-    
-    {
-        return this.Nts;
+    setLN(lname) {
+      this.LN = lname;
     }
-
-    setFN(FName1){
-        this.FN=FName1;
+    setUN(uname) {
+      this.UN = uname;
     }
-    setLN(LName1){
-        this.LN=LName1;
+    setPwd(pwd) {
+      this.Pwd = pwd;
     }
-    setemail(Email){
-        this.email=Email;
-
+    getNote() {
+      return this.Note;
     }
-    setPWD(pd){
-        this.pd=PWD;
+    setNote(note) {
+      this.Note = note;
     }
-    setPassword(ReEnterpdpd){
-        this.ReEnter=Password;
-    }
-    setNts(Ptext){
-        this.Ptext=Nts;
-    }
-
-}
-let create= document.getElementById("login-form");
-if(create) create.addEventListener('submit',login)
-
-function login(e){
- e.preventDefault();
- let em1=document.getElementById("email").value;
- let pwd=document.getElementById("Password").value;
-
- let luser=new bala(em1,pwd);
- console.log(`${em1}`);
- console.log(`${pwd}`);
- create.reset();
-
-}
-
-let Reg=document.getElementById("regsiter-form");
-if(Reg) Reg.addEventListener('submit',breg)
-
-function breg(r){
-    r.preventDefault();
-    let FU1= document.getElementById("FN").value;
-    let Lr=document.getElementById("LN").value;
-    let eml1=document.getElementById("email").value;
-    let pwd=document.getElementById("PWD").value;
-    let pset=document.getElementById("Password").value;
-    
-    //let regi= new bala(FU1,Lr,eml1,pwd,pset);
-    console.log(`${FU1}`);
-    console.log(`${Lr}`);
-    console.log(`${eml1}`);
-    console.log(`${pwd}`);
-    console.log(`${pset}`);   
-    Reg.reset();
-    
-}
-
-let UserN= document.getElementById("note-form");
-if(UserN) UserN.addEventListener('submit',page)
-
-function page(b){
-    b.preventDefault();
-    let Notepage= document.getElementById("Nts").value;
-    //let usr= new bala(Notepage);
-    console.log(`${Notepage}`);
-    UserN.reset();
-
-}
+  }
+  const registration = document.getElementById("formreg");
+  if (registration) registration.addEventListener('submit', register)
+  
+  function register(e) {
+    e.preventDefault();
+    let firstname = document.getElementById('fname').value;
+    let lastname = document.getElementById('lname').value;
+    let username = document.getElementById('uname').value;
+    let passwrd = document.getElementById('password').value;
+  
+    let regi = new MainPage(firstname, lastname, username, passwrd,);
+    console.log(regi.FN)
+    console.log(regi.LN)
+    console.log(regi.UN)
+    console.log(regi.Pwd)
+    registration.reset();
+  }
+  const loginform = document.getElementById("login");
+  if (loginform) loginform.addEventListener('submit', loginuser)
+  
+  function loginuser(l) {
+    l.preventDefault();
+    let user = document.getElementById('uname').value;
+    let password = document.getElementById('password').value;
+  
+    let log = new MainPage(undefined,undefined,user,password,);
+    console.log(log.UN);
+    console.log(log.Pwd);
+    loginform.reset();
+  }
+  
+  const noteform = document.getElementById("note");
+  if (noteform) noteform.addEventListener('submit', notem)
+  
+  function notem(f) {
+    f.preventDefault();
+    let notetext = document.getElementById('noteid').value;
+  
+    let n = new MainPage(undefined,undefined,undefined,undefined,notetext);
+    console.log(n.Note);
+    noteform.reset();
+  }

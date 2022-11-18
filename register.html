@@ -8,15 +8,9 @@ initial-scale=1.0">
 <title>Register Page</title>
 <link href="style.css" rel="stylesheet">
 </head>
- <body>
-  <nav class="flexibox">
-    <a href="./Login.html">Login page</a>
-    <a href="./note.html">Notes page</a>
-  </nav>
+ <body class="register">
     <main class="middle">
-        <h3>fill the form to register</h3>
-        <br>
-        <form action="send registering data toserver" method="post" id="regform">
+        <form action="send registering data toserver" method="post" id="formreg">
           <label for="fname">First name:</label>&nbsp;&nbsp;&nbsp;&nbsp;   
           <input type="text" id="fname" name="fname" placeholder="Enter your First Name"><br>
           <label for="lname">Last name:</label>&nbsp;&nbsp;&nbsp;&nbsp;   
@@ -29,6 +23,8 @@ initial-scale=1.0">
           <input type="submit" value="Submit">
        </form> 
     </main>
+    <a href="./login.html">Login page</a>
+    <a href="./note.html">Notes page</a>
    <script src="main.js"></script>
  </body>
 </html>
