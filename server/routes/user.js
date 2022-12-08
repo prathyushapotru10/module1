@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../modules/user');
+const User = require('../models/user');
 const router = express.Router();
 
 router
@@ -20,6 +20,34 @@ router
       res.status(401).send({message: err.message});
     }
   })
+
+  .post('/register', async (req, res) => {
+    try {
+      let user = await User.register(req.body);
+      res.send({...user, password: undefined})
+    } catch(err) {
+      res.status(401).send({message: err.message});
+    }
+  })
+
+  .put('/updateuser', async (req, res) => {
+    try {
+      let user = await User.updateUser(req.body);
+      res.send({...user, password: undefined});
+    } catch(err) {
+      res.status(401).send({message: err.message})
+    }
+  })
+
+  .delete('/removeuser', async (req, res) => {
+    try {
+      User.removeUser(req.body);
+      res.send({success: "We'll Miss You... :("})
+    } catch(err) {
+      res.status(401).send({message: err.message})
+    }
+  })
+
 
 
   
